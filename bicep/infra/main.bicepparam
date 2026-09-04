@@ -14,11 +14,11 @@ param tags = {
 // ============================================================================
 // RESOURCE NAMES - Assign custom names to different provisioned services
 // ============================================================================
-param resourceGroupName = readEnvironmentVariable('AZURE_RESOURCE_GROUP', 'rg-nprd-hub-kus-001')
-param apimIdentityName = readEnvironmentVariable('APIM_IDENTITY_NAME', 'id-apim-nprd-hub-kus-001')
-param usageLogicAppIdentityName = readEnvironmentVariable('USAGE_LOGIC_APP_IDENTITY_NAME', 'id-logic-nprd-hub-kus-001')
-param apimServiceName = readEnvironmentVariable('APIM_SERVICE_NAME', 'apim-nprd-hub-kus-001')
-param logAnalyticsName = readEnvironmentVariable('LOG_ANALYTICS_NAME', 'log-nprd-hub-kus-001')
+param resourceGroupName = readEnvironmentVariable('AZURE_RESOURCE_GROUP', 'rg-nprd-hub-uks-001')
+param apimIdentityName = readEnvironmentVariable('APIM_IDENTITY_NAME', 'id-apim-nprd-hub-uks-001')
+param usageLogicAppIdentityName = readEnvironmentVariable('USAGE_LOGIC_APP_IDENTITY_NAME', 'id-logic-nprd-hub-uks-001')
+param apimServiceName = readEnvironmentVariable('APIM_SERVICE_NAME', 'apim-nprd-hub-uks-001')
+param logAnalyticsName = readEnvironmentVariable('LOG_ANALYTICS_NAME', 'log-nprd-hub-uks-001')
 param azureMonitorPrivateLinkScopeName = readEnvironmentVariable('AZURE_MONITOR_PRIVATE_LINK_SCOPE_NAME', '')
 param apimApplicationInsightsDashboardName = readEnvironmentVariable('APIM_APP_INSIGHTS_DASHBOARD_NAME', '')
 param funcApplicationInsightsDashboardName = readEnvironmentVariable('FUNC_APP_INSIGHTS_DASHBOARD_NAME', '')
@@ -26,14 +26,14 @@ param foundryApplicationInsightsDashboardName = readEnvironmentVariable('FOUNDRY
 param apimApplicationInsightsName = readEnvironmentVariable('APIM_APP_INSIGHTS_NAME', '')
 param funcApplicationInsightsName = readEnvironmentVariable('FUNC_APP_INSIGHTS_NAME', '')
 param foundryApplicationInsightsName = readEnvironmentVariable('FOUNDRY_APP_INSIGHTS_NAME', '')
-param eventHubNamespaceName = readEnvironmentVariable('EVENTHUB_NAMESPACE_NAME', 'evhns-nprd-hub-kus-001')
-param cosmosDbAccountName = readEnvironmentVariable('COSMOS_DB_ACCOUNT_NAME', 'cosmos-nprd-hub-kus-001')
-param usageProcessingLogicAppName = readEnvironmentVariable('USAGE_PROCESSING_LOGIC_APP_NAME', 'logic-nprd-hub-kus-001')
-param logicAppServicePlanName = readEnvironmentVariable('LOGIC_APP_SERVICE_PLAN_NAME', 'asp-logic-nprd-hub-kus-001')
-param storageAccountName = readEnvironmentVariable('STORAGE_ACCOUNT_NAME', 'stnprdhubkus001')
+param eventHubNamespaceName = readEnvironmentVariable('EVENTHUB_NAMESPACE_NAME', 'evhns-nprd-hub-uks-001')
+param cosmosDbAccountName = readEnvironmentVariable('COSMOS_DB_ACCOUNT_NAME', 'cosmos-nprd-hub-uks-001')
+param usageProcessingLogicAppName = readEnvironmentVariable('USAGE_PROCESSING_LOGIC_APP_NAME', 'logic-nprd-hub-uks-001')
+param logicAppServicePlanName = readEnvironmentVariable('LOGIC_APP_SERVICE_PLAN_NAME', 'asp-logic-nprd-hub-uks-001')
+param storageAccountName = readEnvironmentVariable('STORAGE_ACCOUNT_NAME', 'stnprdhubuks001')
 param apicServiceName = readEnvironmentVariable('APIC_SERVICE_NAME', '')
 param aiFoundryResourceName = readEnvironmentVariable('AI_FOUNDRY_RESOURCE_NAME', '')
-param keyVaultName = readEnvironmentVariable('KEY_VAULT_NAME', 'kv-nprd-hub-kus-001')
+param keyVaultName = readEnvironmentVariable('KEY_VAULT_NAME', 'kv-nprd-hub-uks-001')
 param redisCacheName = readEnvironmentVariable('REDIS_CACHE_NAME', '')
 
 // ============================================================================
@@ -47,22 +47,22 @@ param existingLogAnalyticsSubscriptionId = readEnvironmentVariable('EXISTING_LOG
 // ============================================================================
 // NETWORKING PARAMETERS - Network configuration and access controls
 // ============================================================================
-param vnetName = readEnvironmentVariable('VNET_NAME', 'VNET-nprd-ai-hub-kus-pfm')
+param vnetName = readEnvironmentVariable('VNET_NAME', 'VNET-nprd-ai-hub-uks-pfm')
 param useExistingVnet = bool(readEnvironmentVariable('USE_EXISTING_VNET', 'false'))
 param existingVnetRG = readEnvironmentVariable('EXISTING_VNET_RG', '')
 
 // Subnet names
-param apimSubnetName = readEnvironmentVariable('APIM_SUBNET_NAME', 'snet-apim-nprd-hub-kus-001')
-param privateEndpointSubnetName = readEnvironmentVariable('PRIVATE_ENDPOINT_SUBNET_NAME', 'snet-pe-nprd-hub-kus-001')
-param functionAppSubnetName = readEnvironmentVariable('FUNCTION_APP_SUBNET_NAME', 'snet-fun-nprd-hub-kus-001')
-param agentSubnetName = readEnvironmentVariable('AGENT_SUBNET_NAME', 'snet-aifoundry-nprd-hub-kus-001')
+param apimSubnetName = readEnvironmentVariable('APIM_SUBNET_NAME', 'snet-apim-nprd-hub-uks-001')
+param privateEndpointSubnetName = readEnvironmentVariable('PRIVATE_ENDPOINT_SUBNET_NAME', 'snet-pe-nprd-hub-uks-001')
+param functionAppSubnetName = readEnvironmentVariable('FUNCTION_APP_SUBNET_NAME', 'snet-fun-nprd-hub-uks-001')
+param agentSubnetName = readEnvironmentVariable('AGENT_SUBNET_NAME', 'snet-aifoundry-nprd-hub-uks-001')
 
 // NSG & route table names
-param apimNsgName = readEnvironmentVariable('APIM_NSG_NAME', 'nsg-apim-nprd-hub-kus-001')
-param privateEndpointNsgName = readEnvironmentVariable('PRIVATE_ENDPOINT_NSG_NAME', 'nsg-pe-nprd-hub-kus-001')
-param functionAppNsgName = readEnvironmentVariable('FUNCTION_APP_NSG_NAME', 'nsg-fun-nprd-hub-kus-001')
-param agentSubnetNsgName = readEnvironmentVariable('AGENT_SUBNET_NSG_NAME', 'nsg-aifoundry-nprd-hub-kus-001')
-param apimRouteTableName = readEnvironmentVariable('APIM_ROUTE_TABLE_NAME', 'rt-apim-nprd-hub-kus-001')
+param apimNsgName = readEnvironmentVariable('APIM_NSG_NAME', 'nsg-apim-nprd-hub-uks-001')
+param privateEndpointNsgName = readEnvironmentVariable('PRIVATE_ENDPOINT_NSG_NAME', 'nsg-pe-nprd-hub-uks-001')
+param functionAppNsgName = readEnvironmentVariable('FUNCTION_APP_NSG_NAME', 'nsg-fun-nprd-hub-uks-001')
+param agentSubnetNsgName = readEnvironmentVariable('AGENT_SUBNET_NSG_NAME', 'nsg-aifoundry-nprd-hub-uks-001')
+param apimRouteTableName = readEnvironmentVariable('APIM_ROUTE_TABLE_NAME', 'rt-apim-nprd-hub-uks-001')
 
 // VNet address space and subnet prefixes
 param vnetAddressPrefix = readEnvironmentVariable('VNET_ADDRESS_PREFIX', '10.168.14.0/23')
@@ -97,16 +97,16 @@ param existingPrivateDnsZones = {
 }
 
 // Private Endpoint names
-param storageBlobPrivateEndpointName = readEnvironmentVariable('STORAGE_BLOB_PE_NAME', 'pe-stblob-nprd-hub-kus-001')
-param storageFilePrivateEndpointName = readEnvironmentVariable('STORAGE_FILE_PE_NAME', 'pe-stfile-nprd-hub-kus-001')
-param storageTablePrivateEndpointName = readEnvironmentVariable('STORAGE_TABLE_PE_NAME', 'pe-sttable-nprd-hub-kus-001')
-param storageQueuePrivateEndpointName = readEnvironmentVariable('STORAGE_QUEUE_PE_NAME', 'pe-stqueue-nprd-hub-kus-001')
-param cosmosDbPrivateEndpointName = readEnvironmentVariable('COSMOS_DB_PE_NAME', 'pe-cosmosdb-nprd-hub-kus-001')
-param eventHubPrivateEndpointName = readEnvironmentVariable('EVENTHUB_PE_NAME', 'pe-eventhub-nprd-hub-kus-001')
-param apimV2PrivateEndpointName = readEnvironmentVariable('APIM_V2_PE_NAME', 'pe-apimv2-nprd-hub-kus-001')
+param storageBlobPrivateEndpointName = readEnvironmentVariable('STORAGE_BLOB_PE_NAME', 'pe-stblob-nprd-hub-uks-001')
+param storageFilePrivateEndpointName = readEnvironmentVariable('STORAGE_FILE_PE_NAME', 'pe-stfile-nprd-hub-uks-001')
+param storageTablePrivateEndpointName = readEnvironmentVariable('STORAGE_TABLE_PE_NAME', 'pe-sttable-nprd-hub-uks-001')
+param storageQueuePrivateEndpointName = readEnvironmentVariable('STORAGE_QUEUE_PE_NAME', 'pe-stqueue-nprd-hub-uks-001')
+param cosmosDbPrivateEndpointName = readEnvironmentVariable('COSMOS_DB_PE_NAME', 'pe-cosmosdb-nprd-hub-uks-001')
+param eventHubPrivateEndpointName = readEnvironmentVariable('EVENTHUB_PE_NAME', 'pe-eventhub-nprd-hub-uks-001')
+param apimV2PrivateEndpointName = readEnvironmentVariable('APIM_V2_PE_NAME', 'pe-apimv2-nprd-hub-uks-001')
 param aiFoundryPrivateEndpointName = readEnvironmentVariable('AI_FOUNDRY_PE_NAME', '')
-param keyVaultPrivateEndpointName = readEnvironmentVariable('KEY_VAULT_PE_NAME', 'pe-kv-nprd-hub-kus-001')
-param redisPrivateEndpointName = readEnvironmentVariable('REDIS_PE_NAME', 'pe-redis-nprd-hub-kus-001')
+param keyVaultPrivateEndpointName = readEnvironmentVariable('KEY_VAULT_PE_NAME', 'pe-kv-nprd-hub-uks-001')
+param redisPrivateEndpointName = readEnvironmentVariable('REDIS_PE_NAME', 'pe-redis-nprd-hub-uks-001')
 
 // Services network access configuration
 param apimNetworkType = readEnvironmentVariable('APIM_NETWORK_TYPE', 'Internal')
@@ -194,16 +194,16 @@ param aiSearchInstances = []
 // Agent subnet is regional - typically only enable injection for the instance in the VNet's region.
 param aiFoundryInstances = [
   {
-    name: readEnvironmentVariable('AI_FOUNDRY_RESOURCE_NAME', 'aif-nprd-hub-kus-001')
+    name: readEnvironmentVariable('AI_FOUNDRY_RESOURCE_NAME', 'aif-nprd-hub-uks-001')
     location: readEnvironmentVariable('AZURE_LOCATION', 'uksouth')
     customSubDomainName: ''
-    defaultProjectName: 'proj-nprd-hub-kus-001'
+    defaultProjectName: 'proj-nprd-hub-uks-001'
   }
   {
-    name: readEnvironmentVariable('AI_FOUNDRY_RESOURCE_NAME', 'aif-nprd-hub-kus-002')
+    name: readEnvironmentVariable('AI_FOUNDRY_RESOURCE_NAME', 'aif-nprd-hub-uks-002')
     location: 'uksouth'
     customSubDomainName: ''
-    defaultProjectName: 'proj-nprd-hub-kus-002'
+    defaultProjectName: 'proj-nprd-hub-uks-002'
   }
 ]
 

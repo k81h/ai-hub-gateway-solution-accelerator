@@ -796,6 +796,7 @@ module vnet './modules/networking/vnet.bicep' = if(!useExistingVnet) {
     vnetAddressPrefix: vnetAddressPrefix
     apimSubnetAddressPrefix: apimSubnetPrefix
     isAPIMV2SKU: apimSku == 'StandardV2' || apimSku == 'PremiumV2'
+    apimNetworkType: apimNetworkType
     privateEndpointSubnetAddressPrefix: privateEndpointSubnetPrefix
     functionAppSubnetAddressPrefix: functionAppSubnetPrefix
     location: location

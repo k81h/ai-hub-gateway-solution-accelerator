@@ -15,6 +15,10 @@ param functionAppSubnetAddressPrefix string
 param isAPIMV2SKU bool
 param tags object = {}
 
+@description('Network type for API Management. External enables public gateway and Traffic Manager ingress rules.')
+@allowed([ 'External', 'Internal' ])
+param apimNetworkType string = 'External'
+
 @description('Enable provisioning of the AI Foundry agent network injection subnet (delegated to Microsoft.App/environments).')
 param enableAgentSubnet bool = true
 
@@ -30,12 +34,14 @@ param agentSubnetAddressPrefix string = '10.170.0.192/26'
 // Set to true to enable service endpoints for APIM subnet
 param enableServiceEndpointsForAPIM bool = true
 
+var effectiveApimNetworkType = isAPIMV2SKU ? 'External' : apimNetworkType
+
 resource apimNsg 'Microsoft.Network/networkSecurityGroups@2020-07-01' = {
   name: apimNsgName
   location: location
   tags: union(tags, { 'azd-service-name': apimNsgName })
   properties: {
-    securityRules: [
+    securityRules: concat(effectiveApimNetworkType == 'External' ? [
       {
         name: 'AllowPublicAccess' // Only External
         properties: {
@@ -49,6 +55,20 @@ resource apimNsg 'Microsoft.Network/networkSecurityGroups@2020-07-01' = {
             direction: 'Inbound'
         }
       }
+      {
+        name: 'AllowAzureTrafficManager' // Only External
+        properties: {
+            protocol: 'Tcp'
+            sourcePortRange: '*'
+            destinationPortRange: '443'
+            sourceAddressPrefix: 'AzureTrafficManager'
+            destinationAddressPrefix: 'VirtualNetwork'
+            access: 'Allow'
+            priority: 3030
+            direction: 'Inbound'
+        }
+      }
+    ] : [], [
       {
         name: 'AllowAPIMManagement'
         properties: {
@@ -72,19 +92,6 @@ resource apimNsg 'Microsoft.Network/networkSecurityGroups@2020-07-01' = {
             destinationAddressPrefix: 'VirtualNetwork'
             access: 'Allow'
             priority: 3020
-            direction: 'Inbound'
-        }
-      }
-      {
-        name: 'AllowAzureTrafficManager' //Only External
-        properties: {
-            protocol: 'Tcp'
-            sourcePortRange: '*'
-            destinationPortRange: '443'
-            sourceAddressPrefix: 'AzureTrafficManager'
-            destinationAddressPrefix: 'VirtualNetwork'
-            access: 'Allow'
-            priority: 3030
             direction: 'Inbound'
         }
       }
@@ -140,7 +147,7 @@ resource apimNsg 'Microsoft.Network/networkSecurityGroups@2020-07-01' = {
             direction: 'Outbound'
         }
       }
-    ]
+    ])
   }
 }
 

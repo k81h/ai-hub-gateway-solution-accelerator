@@ -296,7 +296,7 @@ module modelDeployments 'deployments.bicep' = [for (config, i) in aiServicesConf
 module privateEndpoints '../networking/private-endpoint-multi-dns.bicep' = [for (config, i) in aiServicesConfig: {
   name: 'pe-${foundryResources[i].name}'
   params: {
-    name: !empty(aiFoundryPrivateEndpointBaseName) ? '${aiFoundryPrivateEndpointBaseName}-${i}' : '${foundryResources[i].name}-pe'
+    name: !empty(aiFoundryPrivateEndpointBaseName) ? '${aiFoundryPrivateEndpointBaseName}-${i}' : 'pe-${foundryResources[i].name}'
     privateLinkServiceId: foundryResources[i].id
     groupIds: [
       'account'
