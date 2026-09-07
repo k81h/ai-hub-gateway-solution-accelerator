@@ -81,19 +81,19 @@ param dnsSubscriptionId = readEnvironmentVariable('DNS_SUBSCRIPTION_ID', '')
 // Use this when you have existing Private DNS Zones in different subscriptions/resource groups
 // Leave empty strings to use the legacy dnsZoneRG/dnsSubscriptionId approach
 param existingPrivateDnsZones = {
-  openai: readEnvironmentVariable('EXISTING_DNS_ZONE_OPENAI', '/subscriptions/9ad6f7f4-b0d6-4d88-a6d1-3fc2257d5583/resourceGroups/rg-dns-zones/providers/Microsoft.Network/privateDnsZones/privatelink.openai.azure.com')              // privatelink.openai.azure.com
-  keyVault: readEnvironmentVariable('EXISTING_DNS_ZONE_KEYVAULT', '/subscriptions/9ad6f7f4-b0d6-4d88-a6d1-3fc2257d5583/resourceGroups/rg-dns-zones/providers/Microsoft.Network/privateDnsZones/privatelink.vaultcore.azure.net')          // privatelink.vaultcore.azure.net
-  monitor: readEnvironmentVariable('EXISTING_DNS_ZONE_MONITOR', '/subscriptions/9ad6f7f4-b0d6-4d88-a6d1-3fc2257d5583/resourceGroups/rg-dns-zones/providers/Microsoft.Network/privateDnsZones/privatelink.monitor.azure.com')            // privatelink.monitor.azure.com
-  eventHub: readEnvironmentVariable('EXISTING_DNS_ZONE_EVENTHUB', '/subscriptions/9ad6f7f4-b0d6-4d88-a6d1-3fc2257d5583/resourceGroups/rg-dns-zones/providers/Microsoft.Network/privateDnsZones/privatelink.servicebus.windows.net')          // privatelink.servicebus.windows.net
-  cosmosDb: readEnvironmentVariable('EXISTING_DNS_ZONE_COSMOSDB', '/subscriptions/9ad6f7f4-b0d6-4d88-a6d1-3fc2257d5583/resourceGroups/rg-dns-zones/providers/Microsoft.Network/privateDnsZones/privatelink.documents.azure.com')          // privatelink.documents.azure.com
-  storageBlob: readEnvironmentVariable('EXISTING_DNS_ZONE_STORAGE_BLOB', '/subscriptions/9ad6f7f4-b0d6-4d88-a6d1-3fc2257d5583/resourceGroups/rg-dns-zones/providers/Microsoft.Network/privateDnsZones/privatelink.blob.core.windows.net')   // privatelink.blob.core.windows.net
-  storageFile: readEnvironmentVariable('EXISTING_DNS_ZONE_STORAGE_FILE', '/subscriptions/9ad6f7f4-b0d6-4d88-a6d1-3fc2257d5583/resourceGroups/rg-dns-zones/providers/Microsoft.Network/privateDnsZones/privatelink.file.core.windows.net')   // privatelink.file.core.windows.net
-  storageTable: readEnvironmentVariable('EXISTING_DNS_ZONE_STORAGE_TABLE', '/subscriptions/9ad6f7f4-b0d6-4d88-a6d1-3fc2257d5583/resourceGroups/rg-dns-zones/providers/Microsoft.Network/privateDnsZones/privatelink.table.core.windows.net') // privatelink.table.core.windows.net
-  storageQueue: readEnvironmentVariable('EXISTING_DNS_ZONE_STORAGE_QUEUE', '/subscriptions/9ad6f7f4-b0d6-4d88-a6d1-3fc2257d5583/resourceGroups/rg-dns-zones/providers/Microsoft.Network/privateDnsZones/privatelink.queue.core.windows.net') // privatelink.queue.core.windows.net
-  cognitiveServices: readEnvironmentVariable('EXISTING_DNS_ZONE_COGNITIVE', '/subscriptions/9ad6f7f4-b0d6-4d88-a6d1-3fc2257d5583/resourceGroups/rg-dns-zones/providers/Microsoft.Network/privateDnsZones/privatelink.cognitiveservices.azure.com') // privatelink.cognitiveservices.azure.com
-  apimGateway: readEnvironmentVariable('EXISTING_DNS_ZONE_APIM', '/subscriptions/9ad6f7f4-b0d6-4d88-a6d1-3fc2257d5583/resourceGroups/rg-dns-zones/providers/Microsoft.Network/privateDnsZones/privatelink.azure-api.net')           // privatelink.azure-api.net
-  aiServices: readEnvironmentVariable('EXISTING_DNS_ZONE_AI_SERVICES', '/subscriptions/9ad6f7f4-b0d6-4d88-a6d1-3fc2257d5583/resourceGroups/rg-dns-zones/providers/Microsoft.Network/privateDnsZones/privatelink.services.ai.azure.com')     // privatelink.services.ai.azure.com
-  redis: readEnvironmentVariable('EXISTING_DNS_ZONE_REDIS', '/subscriptions/9ad6f7f4-b0d6-4d88-a6d1-3fc2257d5583/resourceGroups/rg-dns-zones/providers/Microsoft.Network/privateDnsZones/privatelink.redis.azure.net')                // privatelink.redis.azure.net
+  openai: readEnvironmentVariable('EXISTING_DNS_ZONE_OPENAI', '/subscriptions/ee37d296-c967-43c2-9c2a-67cc84ae5936/resourceGroups/RG-prd-nhub-uks-dns/providers/Microsoft.Network/privateDnsZones/privatelink.openai.azure.com')              // privatelink.openai.azure.com
+  keyVault: readEnvironmentVariable('EXISTING_DNS_ZONE_KEYVAULT', '/subscriptions/ee37d296-c967-43c2-9c2a-67cc84ae5936/resourceGroups/RG-prd-nhub-uks-dns/providers/Microsoft.Network/privateDnsZones/privatelink.vaultcore.azure.net')          // privatelink.vaultcore.azure.net
+  monitor: readEnvironmentVariable('EXISTING_DNS_ZONE_MONITOR', '/subscriptions/ee37d296-c967-43c2-9c2a-67cc84ae5936/resourceGroups/RG-prd-nhub-uks-dns/providers/Microsoft.Network/privateDnsZones/privatelink.monitor.azure.com')            // privatelink.monitor.azure.com
+  eventHub: readEnvironmentVariable('EXISTING_DNS_ZONE_EVENTHUB', '/subscriptions/ee37d296-c967-43c2-9c2a-67cc84ae5936/resourceGroups/RG-prd-nhub-uks-dns/providers/Microsoft.Network/privateDnsZones/privatelink.servicebus.windows.net')          // privatelink.servicebus.windows.net
+  cosmosDb: readEnvironmentVariable('EXISTING_DNS_ZONE_COSMOSDB', '/subscriptions/ee37d296-c967-43c2-9c2a-67cc84ae5936/resourceGroups/RG-prd-nhub-uks-dns/providers/Microsoft.Network/privateDnsZones/privatelink.documents.azure.com')          // privatelink.documents.azure.com
+  storageBlob: readEnvironmentVariable('EXISTING_DNS_ZONE_STORAGE_BLOB', '/subscriptions/ee37d296-c967-43c2-9c2a-67cc84ae5936/resourceGroups/RG-prd-nhub-uks-dns/providers/Microsoft.Network/privateDnsZones/privatelink.blob.core.windows.net')   // privatelink.blob.core.windows.net
+  storageFile: readEnvironmentVariable('EXISTING_DNS_ZONE_STORAGE_FILE', '/subscriptions/ee37d296-c967-43c2-9c2a-67cc84ae5936/resourceGroups/RG-prd-nhub-uks-dns/providers/Microsoft.Network/privateDnsZones/privatelink.file.core.windows.net')   // privatelink.file.core.windows.net
+  storageTable: readEnvironmentVariable('EXISTING_DNS_ZONE_STORAGE_TABLE', '/subscriptions/ee37d296-c967-43c2-9c2a-67cc84ae5936/resourceGroups/RG-prd-nhub-uks-dns/providers/Microsoft.Network/privateDnsZones/privatelink.table.core.windows.net') // privatelink.table.core.windows.net
+  storageQueue: readEnvironmentVariable('EXISTING_DNS_ZONE_STORAGE_QUEUE', '/subscriptions/ee37d296-c967-43c2-9c2a-67cc84ae5936/resourceGroups/RG-prd-nhub-uks-dns/providers/Microsoft.Network/privateDnsZones/privatelink.queue.core.windows.net') // privatelink.queue.core.windows.net
+  cognitiveServices: readEnvironmentVariable('EXISTING_DNS_ZONE_COGNITIVE', '/subscriptions/ee37d296-c967-43c2-9c2a-67cc84ae5936/resourceGroups/RG-prd-nhub-uks-dns/providers/Microsoft.Network/privateDnsZones/privatelink.cognitiveservices.azure.com') // privatelink.cognitiveservices.azure.com
+  apimGateway: readEnvironmentVariable('EXISTING_DNS_ZONE_APIM', '/subscriptions/ee37d296-c967-43c2-9c2a-67cc84ae5936/resourceGroups/RG-prd-nhub-uks-dns/providers/Microsoft.Network/privateDnsZones/privatelink.azure-api.net')           // privatelink.azure-api.net
+  aiServices: readEnvironmentVariable('EXISTING_DNS_ZONE_AI_SERVICES', '/subscriptions/ee37d296-c967-43c2-9c2a-67cc84ae5936/resourceGroups/RG-prd-nhub-uks-dns/providers/Microsoft.Network/privateDnsZones/privatelink.services.ai.azure.com')     // privatelink.services.ai.azure.com
+  redis: readEnvironmentVariable('EXISTING_DNS_ZONE_REDIS', '/subscriptions/ee37d296-c967-43c2-9c2a-67cc84ae5936/resourceGroups/RG-prd-nhub-uks-dns/providers/Microsoft.Network/privateDnsZones/privatelink.redis.azure.net')                // privatelink.redis.azure.net
 }
 
 // Private Endpoint names
@@ -112,7 +112,7 @@ param redisPrivateEndpointName = readEnvironmentVariable('REDIS_PE_NAME', 'pe-re
 param apimNetworkType = readEnvironmentVariable('APIM_NETWORK_TYPE', 'Internal')
 param apimV2UsePrivateEndpoint = bool(readEnvironmentVariable('APIM_V2_USE_PRIVATE_ENDPOINT', 'true'))
 param apimV2PublicNetworkAccess = bool(readEnvironmentVariable('APIM_V2_PUBLIC_NETWORK_ACCESS', 'true'))
-param logicAppPublicNetworkAccess = bool(readEnvironmentVariable('LOGIC_APP_PUBLIC_NETWORK_ACCESS', 'false'))
+param logicAppPublicNetworkAccess = bool(readEnvironmentVariable('LOGIC_APP_PUBLIC_NETWORK_ACCESS', 'true'))
 param cosmosDbPublicAccess = readEnvironmentVariable('COSMOS_DB_PUBLIC_ACCESS', 'Disabled')
 param eventHubNetworkAccess = readEnvironmentVariable('EVENTHUB_NETWORK_ACCESS', 'Disabled')
 param aiFoundryExternalNetworkAccess = readEnvironmentVariable('AI_FOUNDRY_EXTERNAL_NETWORK_ACCESS', 'Disabled')
