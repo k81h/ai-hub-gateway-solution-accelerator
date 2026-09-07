@@ -3,11 +3,11 @@ using './main.bicep'
 // ============================================================================
 // BASIC PARAMETERS
 // ============================================================================
-param environmentName = readEnvironmentVariable('AZURE_ENV_NAME', 'citadel-dev')
+param environmentName = readEnvironmentVariable('AZURE_ENV_NAME', 'citadel-nprd')
 param location = readEnvironmentVariable('AZURE_LOCATION', 'uksouth')
 param apicLocation = readEnvironmentVariable('APIC_LOCATION', 'uksouth')
 param tags = {
-  'azd-env-name': readEnvironmentVariable('AZURE_ENV_NAME', 'citadel-dev')
+  'azd-env-name': readEnvironmentVariable('AZURE_ENV_NAME', 'citadel-nprd')
   SecurityControl: 'Ignore'
 }
 
