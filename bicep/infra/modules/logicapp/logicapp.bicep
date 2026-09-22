@@ -73,6 +73,7 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2024-04-01' = {
   properties: {
     maximumElasticWorkerCount: 20
     reserved: isReserved
+    zoneRedundant: true
   }
 }
 
