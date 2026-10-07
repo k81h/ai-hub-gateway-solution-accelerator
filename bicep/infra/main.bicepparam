@@ -93,7 +93,7 @@ param existingPrivateDnsZones = {
   cognitiveServices: readEnvironmentVariable('EXISTING_DNS_ZONE_COGNITIVE', '/subscriptions/ee37d296-c967-43c2-9c2a-67cc84ae5936/resourceGroups/RG-prd-nhub-uks-dns/providers/Microsoft.Network/privateDnsZones/privatelink.cognitiveservices.azure.com') // privatelink.cognitiveservices.azure.com
   apimGateway: readEnvironmentVariable('EXISTING_DNS_ZONE_APIM', '/subscriptions/ee37d296-c967-43c2-9c2a-67cc84ae5936/resourceGroups/RG-prd-nhub-uks-dns/providers/Microsoft.Network/privateDnsZones/privatelink.azure-api.net')           // privatelink.azure-api.net
   aiServices: readEnvironmentVariable('EXISTING_DNS_ZONE_AI_SERVICES', '/subscriptions/ee37d296-c967-43c2-9c2a-67cc84ae5936/resourceGroups/RG-prd-nhub-uks-dns/providers/Microsoft.Network/privateDnsZones/privatelink.services.ai.azure.com')     // privatelink.services.ai.azure.com
-  redis: readEnvironmentVariable('EXISTING_DNS_ZONE_REDIS', '/subscriptions/ee37d296-c967-43c2-9c2a-67cc84ae5936/resourceGroups/RG-prd-nhub-uks-dns/providers/Microsoft.Network/privateDnsZones/privatelink.redis.azure.net')                // privatelink.redis.azure.net
+  redis: readEnvironmentVariable('EXISTING_DNS_ZONE_REDIS', '')                // privatelink.redis.azure.net
 }
 
 // Private Endpoint names
