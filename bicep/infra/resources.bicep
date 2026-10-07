@@ -330,8 +330,7 @@ param eventHubCapacityUnits int = 1
 param cosmosDbRUs int = 400
 
 @description('Logic Apps SKU capacity units.')
-@minValue(2)
-param logicAppsSkuCapacityUnits int = 2
+param logicAppsSkuCapacityUnits int = 1
 
 @description('SKU for the API Center service.')
 @allowed(['Free', 'Standard'])
